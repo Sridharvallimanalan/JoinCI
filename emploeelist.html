@@ -1,0 +1,103 @@
+<div class="employeelist">
+	<div class="employee-List-Container">
+		<div class="add-update">
+			<p> Add / Update an Employee</p>
+
+		</div>
+		<div class="profile-Details">
+			<figure>
+			<img src="img/idcard.png" alt="idcard">
+			<p id="employee-Name">{{firstName}}</p>
+		</figure>
+			<p class="profile-Title">Profile:</p>
+		<form name="exampleForm" ng-controller="selectboxCtrl" class="elegant-aero">
+			<div id="emp-ID">
+				<label>Employee ID:</label>
+    <input type="text" name="employeeID" ng-model="contact.phoneNumber" ng-pattern="/^[\+]?[0-9]{6}$/" required/>
+    <span ng-messages="exampleForm.employeeID.$error">
+     <div class="error-Message" ng-message="pattern">Must be a valid 6 digit phone number</div>
+    </span>
+    <p id="employee-ID">{{phoneNumber}}</p>
+</div>
+			<div id="emp-Name">
+    <label>Employee Name:</label>
+    <input type="text" name="userFirstName" ng-model="contact.firstName" required />
+    <span class="error-Message" ng-messages="exampleForm.userFirstName.$error">
+    </span>
+    <div id="employee-Name"><p id="e-Name">{{firstName}}</p></div>
+    
+</div>
+			<div id="emp-Titile">
+				<label>Title:</label>
+		<select name="users"  ng-model="userSelect">
+<option value=""></option>
+<option ng-repeat="option in titlelist" value="{{option.titlelist}}">{{option.name}}</option>
+</select>
+</div>
+<br>
+
+  <div class="radio-Button">
+  <label id="postion">Position:</label>
+  <input type="radio"  name="radios" value="all" checked>
+       <label for="radio1">Onsite</label>
+    <input type="radio" name="radios"value="true">
+       <label for="radio2">offshore</label>
+<br/>
+</div>
+<div id="comp-Title">
+				<label>Competency:</label>
+		<select name="users"  ng-model="competencySelect">
+<option value=""></option>
+<option ng-repeat="option in competencylist" value="{{option.competencylist}}">{{option.name}}</option>
+</select>
+</div>
+	<p class="emergency-Title"> Emergency Contact:</p>
+	<div id="contactNumber">
+				<label>Contact No:</label>
+    <input type="text" id="contact-Number" name="userPhoneNumber" ng-model="lastName" ng-pattern="/^[(9)]{1}[\+]?[0-9]{9}$/" required/>
+    <span ng-messages="exampleForm.userPhoneNumber.$error">
+      <div class="error-Message" ng-message="pattern">Must be a valid 10 digit phone number</div>
+      <p id="contactnumber">{{lastName}}</p>
+    </span>
+</div>
+<div id="blood-Group">
+    <label>Blood Group:</label>
+    <input type="text" name="userFirstName" ng-model="contact.name" ng-pattern="/^[\+]?[ABO]{1,2}[+-]{1}$/" required />
+    <span class="error-Message" ng-messages="exampleForm.userFirstName.$error">
+      <div class="error-Message" ng-message="pattern">Must be a valid bloodgroup</div>
+      <p id="bloodGroup">{{name}}</p>
+    </span>
+</div>
+<div id="userMsg">
+<label id="user-Message">Address:</label>
+<textarea ng-trim="true" type="text" name="userMessage" ng-model="message" 
+          ng-minlength="1" ng-maxlength="1000" required>
+</textarea>
+<div id="address">{{message}}</div>
+</div>
+<div ng-controller="AppController">
+<input id="save-button" type="submit" ng-click="addContact()" value="Save">
+
+</div>			
+</form>	
+<table class="table">
+      <thead>
+			<tr ng-repeat="contact in employeedetails" class="content-contact">
+          <td>{{contact.name}}</td>
+          <td>{{contact.firstName}}</td>
+          <td>{{contact.phoneNumber}}</td>
+</tr>
+</thead>
+</table>
+
+		</div>
+
+
+
+
+
+
+
+</div>
+
+	</div>
